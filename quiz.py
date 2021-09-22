@@ -1,9 +1,6 @@
-import random
-
 questions = ["Vilken funktion används för att skriva ut saker på skärmen?",
     "Hur tar man fram längden på listan i variabeln 'fruits'?",
     "Vad heter nyckelordet för att göra en loop i Python?"]
-#questions = random.choice(questions)
 
 correct_answers = 0
 for i in range(3):
@@ -33,12 +30,4 @@ for i in range(3):
             print("Rätt svar: for")
 
 print("Du fick " + str(correct_answers) + " av 3 rätt.")
-
-
-#import random
-#qu_an= {"Vilken funktion används för att skriva ut saker på skärmen?": "Print"
-#    ,"Hur tar man fram längden på listan i variabeln fruits?": "len",
-#   "Vad heter nyckelordet för att göra en loop i Python?":"for"}
-
-#print(qu_an)
 
