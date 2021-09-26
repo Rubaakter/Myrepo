@@ -8,7 +8,7 @@ correct_answers = 0
 i = 0
 for i in frågor:
     print(i)
-    answer = (input("Ditt svar: "))
+    answer = (input("Ditt svar: ").lower())
     print(answer)
     if answer == frågor[i] :
         print ("Rätt svar!")
