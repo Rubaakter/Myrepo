@@ -1,12 +1,26 @@
-questions = ["Vilken symbol används för att starta en kommentar?",
+frågor = ["Vilken symbol används för att starta en kommentar?",
              "Vad är nyckelordet för att definiera en funktion i python?",
              "Vilken funktion används för att skriva ut saker på skärmen?",
              "Hur tar man fram längden på listan i variabeln 'fruits'?",
              "Vad heter nyckelordet för att göra en loop i Python?"]
 
+# correct_answers = 0
+# i = 0
+# for i in range(5):
+#     print(questions.keys())
+#     answer = (input("Ditt svar: "))
+#     print(answer)
+#     if answer == questions.keys():
+#         print ("Rätt svar!")
+#         correct_answers += 1
+#     else:
+#         print("Fel svar")
+#         print(f"Rätt svar:  {questions.values()}")
+
+
 correct_answers = 0
 for i in range(5):
-    print(questions[i])
+    print(frågor[i])
     answer = (input("Ditt svar: "))
     print(answer)
     if i == 0:
