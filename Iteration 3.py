@@ -1,7 +1,7 @@
 f1 ="""Vilken symbol används för att starta en kommentar?
-1. #
-2. &
-3. %"""
+    1. #
+    2. &
+    3. %"""
 f2 ="""Vad är nyckelordet för att definiera en funktion i python?
     1. define
     2. Def
@@ -44,7 +44,7 @@ correct_answers = 0
 i = 0
 for i in svar:
     print(i)
-    answer = (input("Ditt svar: ").lower())
+    answer = (input("Ditt svar (från 1/2/3): "))
     print(answer)
     if answer == svar[i] :
         print("Rätt svar!")
