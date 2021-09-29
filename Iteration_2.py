@@ -2,7 +2,9 @@ frågor = {"Vilken symbol används för att starta en kommentar?" : "#",
              "Vad är nyckelordet för att definiera en funktion i python?" : "def",
              "Vilken funktion används för att skriva ut saker på skärmen?" : "print",
              "Hur tar man fram längden på listan i variabeln 'fruits'?" : "len",
-             "Vad heter nyckelordet för att göra en loop i Python?" : "for"}
+             "Vad heter nyckelordet för att göra en loop i Python?" : "for",
+             "Hur får man tillgång till ett enskilt objekt på listan?": "index",
+          "Vilken operatör returnerar heltalets återstod (modulo) av divisionen?": "%"}
 
 correct_answers = 0
 i = 0
@@ -17,7 +19,7 @@ for i in frågor:
         print("Fel svar")
         print(f"Rätt svar: {frågor[i]} ")
 
-print("Du fick " + str(correct_answers) + " av 5 rätt.")
+print("Du fick " + str(correct_answers) + " av 6 rätt.")
 
 
 # correct_answers = 0

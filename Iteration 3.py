@@ -4,11 +4,10 @@ frågor = {"Vilken symbol används för att starta en kommentar?" :{1: ["1. #", 
              "Hur tar man fram längden på listan i variabeln 'fruits'?" : {2:["1. length", "2. len", "3. Length"]},
              "Vad heter nyckelordet för att göra en loop i Python?" : {1:["1. for", "2. print", "3. def"]}}
 
-svar= [["1. #", "2. &", "3. @"],
-       ["1. Def", "2. define", "3. def"],
-       ["1. skriva", "2. print", "3. Print"],
-       ["1. length", "2. len", "3. Length"],
-       ["1. for", "2. print", "3. def"]]
+#svar= [["1. #", "2. &", "3. @"],
+#       ["1. Def", "2. define", "3. def"],
+#       ["1. length", "2. len", "3. Length"],
+#       ["1. for", "2. print", "3. def"]]
 
 correct_answers = 0
 i = 0
