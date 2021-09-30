@@ -1,4 +1,4 @@
-frågor = {"1. Vilken symbol används för att starta en kommentar? \n1. # \n2. %  \n3. &": "1",
+{"1. Vilken symbol används för att starta en kommentar? \n1. # \n2. %  \n3. &": "1",
              "2. Vad är nyckelordet för att definiera en funktion i python? \n1. Define \n2. Def  \n3. def": "3",
              "3. Vilken funktion används för att skriva ut saker på skärmen? \n1. skriva \n2. print  \n3. open": "2",
              "4. Hur tar man fram längden på listan i variabeln 'fruits'? \n1. length \n2. size  \n3. len": "3",
