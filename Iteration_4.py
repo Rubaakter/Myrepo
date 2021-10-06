@@ -3,11 +3,17 @@ QUESTIONS = "questions.json"
 
 
 def load_question():
-    with open(QUESTIONS) as q:
-        return json.load(q)
+    try:
+        with open(QUESTIONS) as question:
+            return json.load(question)
+    except FileNotFoundError:
+        with open(QUESTIONS, "w") as question:
+            return
 
 
 def main():
+    print("EXEMPELKÖRNING:    ")
+    print("'''                      ")
     QUESTIONS = load_question()
     correct_answers = 0
     for i in QUESTIONS:
