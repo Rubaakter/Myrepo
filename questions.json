@@ -17,4 +17,4 @@
   "17. Vad är resultatet av 5 ** 3? \n1. 125 \n2. 15 \n3. 55": "1",
   "18. Vad är den rätta \"inte lika\" operatören? \n1. |= \n2. != \n3. #":  "2",
   "19. Vad är syntaxen för att deklarera ett floating nummer? \n1. Complex \n2. Int \n3. Float":  "3",
-  "20. "}
+  "20. Vilket av följande körs utan fel? \n1. round(125.12) \n2. round(123,45.2) \n3. round()":  "1"}
