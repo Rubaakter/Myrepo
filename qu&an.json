@@ -1,0 +1,11 @@
+
+
+{"questions":[{"id":"1","prompt":"Vilken funktion anv\u00e4nder du f\u00f6r att skriva ut text i terminalen?",
+  "answers":[{"answer":"print","correct":true},{"answer":"input","correct":false},
+    {"answer":"import","correct":false},{"answer":"sys.exit","correct":false}]},
+  {"id":"2","prompt":"Hur tar man fram l\u00e4ngden p\u00e5 listan i variabeln \"fruits\"?",
+    "answers":[{"answer":"for _ in range(10)","correct":false},
+      {"answer":"input(fruits)","correct":false},{"answer":"len(fruits)","correct":true}]},
+  {"id":"3","prompt":"Vad heter nyckelordet f\u00f6r att g\u00f6ra en loop i python?",
+    "answers":[{"answer":"in","correct":false},{"answer":"for","correct":true},
+  {"answer":"while","correct":true}]}]}

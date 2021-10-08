@@ -4,7 +4,7 @@ QUESTIONS = "questions.json"
 
 def load_question():
     try:
-        with open(QUESTIONS) as question:
+        with open(QUESTIONS, encoding='utf-8') as question:
             return json.load(question)
     except FileNotFoundError:
         with open(QUESTIONS, "w") as question:
@@ -34,15 +34,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# def load_questions():
-#     try:
-#         with open(QUESTIONS) as q:
-#             return json.load(q)
-#     except FileNotFoundError:
-#         with open(QUESTIONS, "w") as q:
-#             return
-# def save_questions(questions):
-#     with open(QUESTIONS, "r") as f:
-#         json.dump(questions, f)
