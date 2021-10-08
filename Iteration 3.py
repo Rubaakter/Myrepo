@@ -28,7 +28,7 @@ def main():
             print(f"Rätt svar: {QUESTIONS[i]} ")
         print(" "*80)
     print(f"""                                """)
-    print(f"""**** RESULTAT ****""")
+    print(f"""***** RESULTAT *****     """)
     print(f"Du fick {str(correct_answers)} poäng av {str(len(QUESTIONS))}  möjliga.")
 
 
