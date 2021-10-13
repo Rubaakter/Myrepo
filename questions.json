@@ -5,7 +5,7 @@
   "5. Vad heter nyckelordet för att göra en loop i Python? \n1. for \n2. while  \n3. if" : "1",
   "6. Hur får man tillgång till ett enskilt objekt på listan? \n1. index \n2. key  \n3. values": "1",
   "7. Vilken operatör returnerar heltalets återstod (modulo) av divisionen? \n1. * \n2. %  \n3. //": "2",
-  "8. Hur kan du kontrollera objektets typ? \n1. type() \n2. index()  \n3. typ()":"1",
+  "8. Hur kan du kontrollera objektets type? \n1. type() \n2. index()  \n3. typ()":"3",
   "9. Vad heter behållare för lagring av datavärden? \n1. lagring \n2. minne  \n3. variabel": "3",
   "10. Hur skriver man datatypen för ett helt tal? \n1. float \n2. int  \n3. str": "2",
   "11. Vad är resultatet av följande kod? print(11//2) \n1. 5.5 \n2. 5 \n3.Error": "2",

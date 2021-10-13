@@ -12,8 +12,7 @@ def load_question():
 
 
 def main():
-    print("EXEMPELKÖRNING:    ")
-    print("'''                      ")
+    print("EXEMPELKÖRNING:    \n '''''\n")
     QUESTIONS = load_question()
     correct_answers = 0
     for i in QUESTIONS:

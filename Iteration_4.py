@@ -1,5 +1,10 @@
+import requests
 import json
-QUESTIONS = "questions.json"
+QUESTIONS = "frågor.json"
+
+
+URL = "https://bjornkjellgren.se/quiz/v1/questions"
+QUESTION = requests.get(URL).json()
 
 
 def load_question():
@@ -8,29 +13,54 @@ def load_question():
             return json.load(question)
     except FileNotFoundError:
         with open(QUESTIONS, "w") as question:
-            return
+                return
 
 
-def main():
-    print("EXEMPELKÖRNING:    ")
-    print("'''                      ")
-    QUESTIONS = load_question()
+def my_questionnaire():
+    print("EXEMPELKÖRNING:    \n'''''''\n")
     correct_answers = 0
-    for i in QUESTIONS:
-        print(i)
-        answer = (input("Ditt svar (från 1/2/3): "))
+    my_question = load_question()
+    for i in my_question["questions"]:
+        true_answer = ""
+        print(i['id'], i['prompt'])
+        for j in i['answers']:
+            print(j['answer'])
+            if j['correct'] == True:
+                true_answer = j['answer']
+        answer = (input("Ditt svar : "))
         print(answer)
-        if answer == QUESTIONS[i]:
-            print("Rätt svar!")
+        if answer.lower().strip() == true_answer:
+            print("Rätt svar!   \n")
             correct_answers += 1
         else:
             print("Fel svar")
-            print(f"Rätt svar: {QUESTIONS[i]} ")
-        print(" "*80)
-    print(f"""                                """)
+            print(f"Rätt svar: {true_answer}  \n")
     print(f"""**** RESULTAT ****""")
-    print(f"Du fick {str(correct_answers)} poäng av {str(len(QUESTIONS))}  möjliga.")
+    print(f"Du fick {str(correct_answers)} poäng av {str(len(my_question['questions']))}  möjliga.")
+
+
+def main():
+    print("EXEMPELKÖRNING:    \n'''''''\n")
+    correct_answers = 0
+    for i in QUESTION["questions"]:
+        true_answer = ""
+        print(i['id'], i['prompt'])
+        for j in i['answers']:
+            print(j['answer'])
+            if j['correct'] == True:
+                true_answer = j['answer']
+        answer = (input("Ditt svar : "))
+        print(answer)
+        if answer.lower().strip() == true_answer:
+            print("Rätt svar!   \n")
+            correct_answers += 1
+        else:
+            print("Fel svar")
+            print(f"Rätt svar: {true_answer}  \n")
+    print(f"""**** RESULTAT ****""")
+    print(f"Du fick {str(correct_answers)} poäng av {str(len(QUESTION['questions']))}  möjliga.")
 
 
 if __name__ == '__main__':
-    main()
+    my_questionnaire()
+#        main()
