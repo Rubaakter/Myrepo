@@ -20,13 +20,12 @@ def main():
         answer = (input("Ditt svar (från 1/2/3): "))
         print(answer)
         if answer == QUESTIONS[i]:
-            print("Rätt svar!")
+            print("Rätt svar! \n")
             correct_answers += 1
         else:
             print("Fel svar")
-            print(f"Rätt svar: {QUESTIONS[i]} ")
-        print(" "*80)
-    print(f"""                                """)
+            print(f"Rätt svar: {QUESTIONS[i]}  \n")
+
     print(f"""***** RESULTAT *****     """)
     print(f"Du fick {str(correct_answers)} poäng av {str(len(QUESTIONS))}  möjliga.")
 

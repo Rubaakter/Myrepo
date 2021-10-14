@@ -9,6 +9,7 @@ frågor = {"1. Vilken symbol används för att starta en kommentar? \n1. # \n2. 
              "9. Vad heter behållare för lagring av datavärden? \n1. lagring \n2. minne  \n3. variabel": "3",
              "10. Hur skriver man datatypen för ett helt tal? \n1. float \n2. int  \n3. str": "2"}
 
+
 # f1 ="""Vilken symbol används för att starta en kommentar?
 #     1. #
 #     2. &
