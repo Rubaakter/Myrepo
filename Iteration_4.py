@@ -2,7 +2,7 @@ import requests
 import json
 QUESTIONS = "frågor.json"
 
-
+#For my questionnaire
 def load_question():
     try:
         with open(QUESTIONS, encoding='utf-8') as question:
@@ -13,7 +13,7 @@ def load_question():
 
 
 my_questions = load_question()
-
+# for web questionnaire
 URL = "https://bjornkjellgren.se/quiz/v1/questions"
 question_web = requests.get(URL).json()
 
