@@ -32,3 +32,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+  # #print(answer)
+        # if answer.lower().strip() == true_answer:
+        #     print("Rätt svar!   \n")
+        #     correct_answers += 1
+        # else:
+        #     print("Fel svar")
+        #     print(f"Rätt svar: {true_answer}  \n")

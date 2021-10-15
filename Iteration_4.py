@@ -3,13 +3,28 @@ import json
 QUESTIONS = "frågor.json"
 
 #For my questionnaire
+
+
 def load_question():
     try:
         with open(QUESTIONS, encoding='utf-8') as question:
             return json.load(question)
     except FileNotFoundError:
         with open(QUESTIONS, "w") as question:
-                return
+             return
+
+
+def print_answers(answers: list[dict]):
+    for ans_num, answer in enumerate(answers, start=1):
+        print(f"[{ans_num}] {answer['answer']}")
+
+
+def get_correct_answers(answers: list[dict]) -> list[str]:
+    res = []
+    for answer in answers:
+        if answer['correct']:
+            res.append(answer['answer'])
+    return res
 
 
 my_questions = load_question()
@@ -18,28 +33,29 @@ URL = "https://bjornkjellgren.se/quiz/v1/questions"
 question_web = requests.get(URL).json()
 
 
-def main(query=question_web):
+def main(questions=question_web):
     print("EXEMPELKÖRNING:    \n'''''''\n")
     correct_answers = 0
-    for i in query["questions"]:
+    for question in questions["questions"]:
         true_answer = ""
-        print(i['id'], i['prompt'])
-        for j in i['answers']:
-            print(j['answer'])
-            if j['correct'] == True:
-                true_answer = j['answer']
-        answer = (input("Ditt svar : "))
-        print(answer)
-        if answer.lower().strip() == true_answer:
-            print("Rätt svar!   \n")
-            correct_answers += 1
-        else:
-            print("Fel svar")
-            print(f"Rätt svar: {true_answer}  \n")
+        print(question['id'], question['prompt'])
+        answers = question['answers'] # Listan av svaren på den aktuella frågan
+        print_answers(answers)
+        try:
+            user_answer = int(input("Ditt svar (1/2/3) : "))
+            if answers[user_answer - 1]['correct']:
+                print("Rätt")
+                correct_answers += 1
+            else:
+                # Användaren svarade fel
+                print(f"Fel svar, rätt svar är : {' eller '.join(get_correct_answers(answers))}")
+        except ValueError:
+           print(f"Fel svar. Ange ett nummer istället.")
+
     print(f"""**** RESULTAT ****""")
-    print(f"Du fick {str(correct_answers)} poäng av {str(len(query['questions']))}  möjliga.")
+    print(f"Du fick {str(correct_answers)} poäng av {str(len(questions['questions']))}  möjliga.")
 
 
 if __name__ == '__main__':
-    main(query=my_questions)
+    main(questions=my_questions)
 
