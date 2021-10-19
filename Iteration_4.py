@@ -2,10 +2,8 @@ import requests
 import json
 QUESTIONS = "frågor.json"
 
-#For my questionnaire
 
-
-def load_question():
+def load_question(): #For my questionnaire
     try:
         with open(QUESTIONS, encoding='utf-8') as question:
             return json.load(question)
@@ -37,7 +35,6 @@ def main(questions=question_web):
     print("EXEMPELKÖRNING:    \n'''''''\n")
     correct_answers = 0
     for question in questions["questions"]:
-        true_answer = ""
         print(question['id'], question['prompt'])
         answers = question['answers'] # Listan av svaren på den aktuella frågan
         print_answers(answers)
@@ -58,4 +55,3 @@ def main(questions=question_web):
 
 if __name__ == '__main__':
     main(questions=my_questions)
-
