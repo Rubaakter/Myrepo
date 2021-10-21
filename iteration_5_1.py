@@ -13,7 +13,7 @@ def get_correct_answers(answers: list[dict]) -> list[str]:
 
 def input_user_answer(answers, correct_answers, question, right_ans_of_user_mistakes):
     try:
-        user_answer = int(input("Ditt svar (1/2/3) : "))
+        user_answer = int(input("Ditt svar (1/2/3/4) : "))
         if answers[user_answer - 1]['correct']:
             print("Rätt  \n")
             correct_answers += 1
@@ -25,5 +25,5 @@ def input_user_answer(answers, correct_answers, question, right_ans_of_user_mist
     except ValueError:
         print(f"Fel svar. Ange ett nummer istället.\n")
     except IndexError:
-        print(f"Please enter a number within 1-3.\n")
+        print(f"Ange ett nummer inom 1-4.\n")
     return correct_answers

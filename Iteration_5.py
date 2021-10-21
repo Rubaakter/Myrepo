@@ -22,7 +22,7 @@ question_web = requests.get(URL).json()
 
 
 def main(questions=question_web):
-    print("\n\nEXEMPELKÖRNING:    \n'Slumpar fram 10 av 20 frågor.'\n")
+    print(f"\n\nEXEMPELKÖRNING:    \nSlumpar fram 10 av {str(len(questions['questions']))} frågor. \n ")
     correct_answers = 0
     right_ans_of_user_mistakes = []
     random_questions = random.sample((questions["questions"]), 10)
@@ -42,5 +42,6 @@ def main(questions=question_web):
 
 
 if __name__ == '__main__':
-    main(questions=my_questions)
+    main(questions=question_web)
+ #   main(questions=my_questions)
 

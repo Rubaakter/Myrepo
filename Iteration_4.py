@@ -41,13 +41,15 @@ def main(questions=question_web):
         try:
             user_answer = int(input("Ditt svar (1/2/3) : "))
             if answers[user_answer - 1]['correct']:
-                print("Rätt")
+                print("Rätt \n")
                 correct_answers += 1
             else:
                 # Användaren svarade fel
                 print(f"Fel svar, rätt svar är : {' eller '.join(get_correct_answers(answers))}")
         except ValueError:
-           print(f"Fel svar. Ange ett nummer istället.")
+           print(f"Fel svar. Ange ett nummer istället.\n")
+        except IndexError:
+            print(f"Ange ett nummer inom 1-3.\n")
 
     print(f"""**** RESULTAT ****""")
     print(f"Du fick {str(correct_answers)} poäng av {str(len(questions['questions']))}  möjliga.")
