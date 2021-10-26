@@ -28,4 +28,4 @@ class Question:
         self.answers = answers
 
     def percent_correct(self) -> str:
-        return f"{self.times_correct / self.times_asked:.0%}"
+        return f"{self.times_correct / self.times_asked:.0%} har svarat rätt"

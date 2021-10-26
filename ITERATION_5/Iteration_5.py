@@ -1,7 +1,7 @@
 import random
 import requests
 import json
-from iteration_5_1 import print_answers, input_user_answer
+from iteration_5_1 import print_answers, get_correct_answers
 
 QUESTIONS = "frågor.json"
 
@@ -21,6 +21,12 @@ URL = "https://bjornkjellgren.se/quiz/v2/questions" # for web questionnaire
 question_web = requests.get(URL).json()
 
 
+def post_request(questions=question_web):
+    for question in questions['questions']:
+        post_data = {"id": question['id'], "correct": question['answers']['correct']}
+        print(requests.post(URL, json=post_data).text)
+
+
 def percent_correct(questions=question_web):
     for question in questions['questions']:
         return f"{int(question['times_correct'])/int(question['times_asked']):.0%} har svarat rätt"
@@ -36,7 +42,19 @@ def main(questions=question_web):
         print(f"Fråga: {qu_num}. [{percent_correct()}] {question['prompt']}")
         answers = question['answers'] # Listan av svaren på den aktuella frågan
         print_answers(answers)
-        correct_answers = input_user_answer(answers, correct_answers, question, right_ans_of_user_mistakes)
+        try:
+            user_answer = int(input("Ditt svar (1/2/3/4) : "))
+            if answers[user_answer - 1]['correct']:
+                print("Rätt  \n")
+                correct_answers += 1
+            else:
+                print(f"Fel svar, rätt svar är : {' eller '.join(get_correct_answers(answers))} \n")  # Användaren svarade fel
+                right_ans_of_user_mistakes.append(f"- {question['prompt']} ")
+                right_ans_of_user_mistakes.append(f"Rätt svar är : {' eller '.join(get_correct_answers(answers))}")
+        except ValueError:
+            print(f"Fel svar. Ange ett nummer istället.\n")
+        except IndexError:
+            print(f"Ange ett nummer inom 1-4.\n")
 
     print(f"""\n**** RESULTAT ****""")
     print(f"Du fick {str(correct_answers)} poäng av 10  möjliga.\n\n")  # {str(len(questions['questions']))}
@@ -47,6 +65,7 @@ def main(questions=question_web):
 
 
 if __name__ == '__main__':
-#    main(questions=question_web)
-    main(questions=my_questions)
+    main(questions=question_web)
+    post_request()
+#    main(questions=my_questions)
 
