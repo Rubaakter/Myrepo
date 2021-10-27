@@ -1,35 +1,6 @@
 import random
-import requests
-import json
-from iteration_5_1 import print_answers, get_correct_answers
-
-QUESTIONS = "frågor.json"
-
-
-def load_question(): #For my questionnaire
-    try:
-        with open(QUESTIONS, encoding='utf-8') as question:
-            return json.load(question)
-    except FileNotFoundError:
-        with open(QUESTIONS, "w") as question:
-             return
-
-
+from ITERATION_5.iteration_5_2 import question_web, load_question, post_request, print_answers, get_correct_answers, percent_correct
 my_questions = load_question()
-
-URL = "https://bjornkjellgren.se/quiz/v2/questions" # for web questionnaire
-question_web = requests.get(URL).json()
-
-
-def post_request(questions=question_web):
-    for question in questions['questions']:
-        post_data = {"id": question['id'], "correct": question['answers']['correct']}
-        print(requests.post(URL, json=post_data).text)
-
-
-def percent_correct(questions=question_web):
-    for question in questions['questions']:
-        return f"{int(question['times_correct'])/int(question['times_asked']):.0%} har svarat rätt"
 
 
 def main(questions=question_web):
@@ -65,7 +36,8 @@ def main(questions=question_web):
 
 
 if __name__ == '__main__':
-    main(questions=question_web)
-    post_request()
+    main(questions=my_questions)
+#    post_request()
+
 #    main(questions=my_questions)
 
