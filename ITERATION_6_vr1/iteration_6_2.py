@@ -3,7 +3,7 @@ import requests
 
 
 def load_question(): #For my questionnaire
-    QUESTIONS = "frågor.json"
+    QUESTIONS = "../frågor.json"
     try:
         with open(QUESTIONS, encoding='utf-8') as question:
             return json.load(question)
@@ -19,8 +19,8 @@ question_web = requests.get(URL).json()
 def post_request(questions=question_web):
     for question in questions['questions']:
         post_data = {"id": question['id'], "correct": True}
-        return requests.post(URL, json=post_data).text
-
+        requests.post(URL, json=post_data).text
+    return
 
 def print_answers(answers: list[dict]):
     for ans_num, answer in enumerate(answers, start=1):

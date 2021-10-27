@@ -1,6 +1,6 @@
 import random
 
-from ITERATION_6.iteration_6_model import get_questions, post_request, get_correct_answer
+from ITERATION_6_med_class.iteration_6_model import get_questions, post_request, get_correct_answer
 
 
 def main():
@@ -19,8 +19,6 @@ def main():
             if question.answers[user_answer-1].correct:
                 print("Rätt \n")
                 correct_answers += 1
-                # if user_answer > 0:
-                #     print(post_request())
             else:
                 print(f"fel svar. Rätt svar är : {' eller '.join(get_correct_answer(question))}  \n")
                 right_ans_of_user_mistakes.append(f"- {question.prompt} ")

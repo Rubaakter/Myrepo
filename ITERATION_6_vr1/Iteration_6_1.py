@@ -1,5 +1,5 @@
 import random
-from ITERATION_5.iteration_5_2 import question_web, load_question, post_request, print_answers, get_correct_answers, percent_correct
+from ITERATION_6_vr1.iteration_6_2 import question_web, load_question, post_request, print_answers, get_correct_answers, percent_correct
 my_questions = load_question()
 
 
@@ -36,8 +36,8 @@ def main(questions=question_web):
 
 
 if __name__ == '__main__':
-    main(questions=my_questions)
-#    post_request()
+#    main(questions=my_questions)
+    post_request()
 
 #    main(questions=my_questions)
 

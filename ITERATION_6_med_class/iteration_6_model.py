@@ -56,8 +56,10 @@ def parse_question(q) -> Question:
 
 
 def post_request():
-    post_data = {"id": "1", "correct": True, }
-    return requests.post(QUIZ_URL, json=post_data).text
+    for question in get_questions():
+        post_data = {"id": question.id, "correct": True, }
+        requests.post(QUIZ_URL, json=post_data).text
+    return
 
 
 def get_correct_answer(questions):
