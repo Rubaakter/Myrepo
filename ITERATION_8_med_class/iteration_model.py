@@ -40,11 +40,8 @@ class Question:
 
 def get_questions() -> list[Question]:
     """Get questions from 'web api' in the format of parse_question"""
-    response = requests.get(QUIZ_URL).json()
-    res = []
-    for q in response['questions']:
-        res.append(parse_question(q))
-    return res
+    questions = requests.get(QUIZ_URL).json()
+    return [parse_question(q) for q in questions['questions']]
 
 
 def parse_answers(answers) -> list[Answer]:
