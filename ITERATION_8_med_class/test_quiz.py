@@ -22,6 +22,7 @@ def test_percent_correct(dummy_question):
 def test_percent_with_float_as_output(dummy_question1):
     assert dummy_question1.percent_correct() != "68.75% har svarat rätt"
     assert dummy_question1.percent_correct() == "69% har svarat rätt"
+    assert dummy_question1.percent_correct() != 69
 
 
 def test_get_correct_answer(dummy_question):
@@ -38,4 +39,3 @@ def test_get_data(dummy_question):
     assert dummy_question.prompt == "Vilket år utvecklades Python"
     assert dummy_question.times_asked == 50
     assert dummy_question.times_correct == 40
-

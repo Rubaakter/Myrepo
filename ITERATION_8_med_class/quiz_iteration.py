@@ -9,7 +9,6 @@ def main():
     Gather and print all correct answers where users give wrong answer"""
 
     print(f"\n\n\033[97mEXEMPELKÖRNING:    \n\033[92mSlumpar fram 10 av  {str(len(questions))} frågor. \n ")
-
     correct_answers = 0
     right_ans_of_user_mistakes = []
     random_questions = random.sample(questions, 10)
