@@ -37,3 +37,5 @@ def test_get_correct_answer2(dummy_question1):
 def test_get_data(dummy_question):
     assert dummy_question.prompt == "Vilket år utvecklades Python"
     assert dummy_question.times_asked == 50
+    assert dummy_question.times_correct == 40
+

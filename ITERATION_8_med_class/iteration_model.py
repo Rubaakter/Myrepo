@@ -57,11 +57,10 @@ def parse_question(q) -> Question:
     return Question(q['id'], q['prompt'], q['times_asked'], q['times_correct'], parse_answers(q['answers']))
 
 
-def post_request():
+def post_request(question_id, answer_correct):
     """This function is used to send post request to 'web api' every time the code is run"""
-    for question in get_questions():
-        post_data = {"id": question.id, "correct": True, }
-        post = requests.post(QUIZ_URL, json=post_data).text
+    post_data = {"id": question_id, "correct": answer_correct}
+    post = requests.post(QUIZ_URL, json=post_data).text
     return post
 
 

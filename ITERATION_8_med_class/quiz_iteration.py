@@ -9,11 +9,10 @@ def main():
     Gather and print all correct answers where users give wrong answer"""
 
     print(f"\n\n\033[97mEXEMPELKÖRNING:    \n\033[92mSlumpar fram 10 av  {str(len(questions))} frågor. \n ")
-    post_request()
+
     correct_answers = 0
     right_ans_of_user_mistakes = []
     random_questions = random.sample(questions, 10)
-
     correct_answers = printing_question_answer(correct_answers, random_questions, right_ans_of_user_mistakes)
 
     print(f"""\n**** RESULTAT ****""")
@@ -36,8 +35,10 @@ def printing_question_answer(correct_answers, random_questions, right_ans_of_use
             user_answer = int(input("\033[94mDitt svar : "))
             if question.answers[user_answer - 1].correct:
                 print("\033[94mRätt \n")
+                post_request(question.id, True)
                 correct_answers += 1
             else:
+                post_request(question.id, False)
                 print(f"\033[96mFel svar. Rätt svar är : {' eller '.join(get_correct_answer(question))}  \n")
                 right_ans_of_user_mistakes.append(f"- {question.prompt} ")
                 right_ans_of_user_mistakes.append(f"Rätt svar är : {' eller '.join(get_correct_answer(question))}")
