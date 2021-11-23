@@ -28,6 +28,7 @@ def test_percent_with_float_as_output(dummy_question1):
 def test_get_correct_answer(dummy_question):
     assert get_correct_answer(dummy_question) == ['1991']
     assert get_correct_answer(dummy_question) != '2021'
+    assert get_correct_answer(dummy_question) != '1991'
 
 
 def test_get_correct_answer2(dummy_question1):
