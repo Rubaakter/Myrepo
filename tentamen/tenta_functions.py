@@ -20,20 +20,24 @@ def category_prize():
 
 def find_winner_by_year_and_category():
     category = category_prize()
-    year = input(f"Year >")
-    p_category = input(f"\033[96mPrize category > \n")
-    c = category[p_category]
-    c = {"nobelPrizeYear": int(year), "nobelPrizeCategory": c}
+    try:
+        year = input(f"Year >")
+        p_category = input(f"\033[96mPrize category > \n")
+        c = category[p_category]
+        c = {"nobelPrizeYear": int(year), "nobelPrizeCategory": c}
 
-    res = requests.get("http://api.nobelprize.org/2.1/nobelPrizes", params=c).json()
-    for p in res["nobelPrizes"]:
-        pengar = p["prizeAmount"]
-        print(f"\033[97m{p['categoryFullName']['se']} prissumma {pengar} SEK")
+        res = requests.get("http://api.nobelprize.org/2.1/nobelPrizes", params=c).json()
 
-        winner = p["laureates"]
-        for num, m in enumerate(winner, start=1):
-            print(f"[{num}] Namnet på vinnaren är: {m['knownName']['en']}")
-            print(f"\033[94mMotivation: \033[97m{m['motivation']['en']}")
+        for p in res["nobelPrizes"]:
+            pengar = p["prizeAmount"]
+            print(f"\033[97m{p['categoryFullName']['se']} prissumma {pengar} SEK")
+
+            winner = p["laureates"]
+            for num, m in enumerate(winner, start=1):
+                print(f"[{num}] Namnet på vinnaren är: {m['knownName']['en']}")
+                print(f"\033[94mMotivation: \033[97m{m['motivation']['en']}")
+    except KeyError:
+        print(f"\033[94mPlease enter a year number and category instead.\n")
 
 
 def find_winners_prize():
@@ -45,15 +49,20 @@ def find_winners_prize():
 
 
 def winners_by_year():
-    year = input(f"Year >")
-    c = {"nobelPrizeYear": int(year)}
+    try:
+        year = input(f"Year >")
+        c = {"nobelPrizeYear": int(year)}
 
-    res = requests.get("http://api.nobelprize.org/2.1/nobelPrizes", params=c).json()
-    prize = res["nobelPrizes"]
-    for num, p in enumerate(prize, start=1):
-        print(f"[{num}]  {p['category']['en']}")
-        pengar = p["prizeAmount"]
-        print(f"\033[97m{p['categoryFullName']['se']} prissumma {pengar} SEK")
-        for m in p["laureates"]:
-            # print(m["knownName"])
-            print(f"\033[94mMotivation: \033[97m{m['motivation']['en']}")
+        res = requests.get("http://api.nobelprize.org/2.1/nobelPrizes", params=c).json()
+        prize = res["nobelPrizes"]
+        for num, p in enumerate(prize, start=1):
+            print(f"[{num}]  {p['category']['en']}")
+            pengar = p["prizeAmount"]
+            print(f"\033[97m{p['categoryFullName']['se']} prissumma {pengar} SEK")
+            for m in p["laureates"]:
+                # print(m["knownName"])
+                print(f"\033[94mMotivation: \033[97m{m['motivation']['en']}")
+    except KeyError:
+        print(f"\033[94mPlease enter a year number and category instead.\n")
+    except ValueError:
+        print(f"\033[94mPlease enter a year number and category instead.\n")

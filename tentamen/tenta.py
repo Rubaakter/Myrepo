@@ -7,7 +7,7 @@ def main():
             1) Name of the winner or winners based on year and prize category
             2) Amount of prize each winner received at a specific year and category
             3) Name of all winners in a certain years
-            Q) Quit
+            Q) Quit: Press q or Q
     """)
 
     while True:
