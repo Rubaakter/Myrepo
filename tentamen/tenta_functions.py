@@ -43,9 +43,9 @@ def find_winner_by_year_and_category():
 def find_winners_prize():
     prize_data = download_prize_data()
     for data in prize_data["nobelPrizes"]:
+        print(f"{data['awardYear']} : {data['prizeAmount']}")
         for f in data["laureates"]:
             portion = f["portion"]
-            print(data["prizeAmount"]*portion)
 
 
 def winners_by_year():
